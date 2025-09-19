@@ -1,5 +1,6 @@
 Базовое клонирование репозитория с гитхаба себе на устройство: 
- git clone https://github.com/Viislav/Tech-of-Prog && cd https://github.com/Viislav/Tech-of-Prog
+ 
+git clone https://github.com/Viislav/Tech-of-Prog && cd https://github.com/Viislav/Tech-of-Prog
 Клонирование в «Tech-of-Prog»...
 remote: Enumerating objects: 22, done.
 remote: Counting objects: 100% (22/22), done.
