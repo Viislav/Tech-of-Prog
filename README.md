@@ -89,4 +89,35 @@
 
 Всё, с ключом разобрались.
 
+Теперь создадим ветвления. Создаём ветвление:
+
+	┌──(vislav㉿No-V)-[~/Tech-of-Prog/starter_repo]
+	└─$ git checkout -b feature/setup                          
+	fatal: a branch named 'feature/setup' already exists
+Обновляем наш GIT:
+
+	┌──(vislav㉿No-V)-[~/Tech-of-Prog/starter_repo]
+	└─$ git fetch origin && git rebase origin/main
+	remote: Enumerating objects: 34, done.
+	remote: Counting objects: 100% (34/34), done.
+	remote: Compressing objects: 100% (33/33), done.
+	remote: Total 33 (delta 10), reused 0 (delta 0), pack-reused 0 (from 0)
+	Распаковка объектов: 100% (33/33), 12.63 КиБ | 91.00 КиБ/с, готово.
+	Из https://github.com/Viislav/Tech-of-Prog
+	   dcc247e..220f9a5  main       -> origin/main
+	Успешно перемещён и обновлён refs/heads/feature/setup.
+И наконецЮ проверяем, что всё сработало корректно:
+	
+	┌──(vislav㉿No-V)-[~/Tech-of-Prog/starter_repo]
+	└─$ git show                                  
+	commit 220f9a5d50f6a33898338510372182348f9167ad (HEAD -> feature/setup, origin/main, origin/HEAD)
+	Author: Vlad <165074922+Viislav@users.noreply.github.com>
+	Date:   Sat Sep 27 11:14:25 2025 +0600
+Всё, ветвление создано и оно работает. Идём дальше.
+
+
+
+
+
+
 
