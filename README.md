@@ -64,6 +64,13 @@
 		[+] Running 2/2
 		 ✔ Network starter_repo_default  Created                                                                                                       0.0s 
 		 ✔ Container starter_repo-app-1  Started  
-Всё, мы полностью готовы к работе! Начинаются основные действия.
+Проверяем работу: 
+	
+	┌──(vislav㉿No-V)-[~/…/ToP/Tech-Prog/01_dev_environment/starter_repo]
+	└─$ docker compose exec app python -m pytest -q
+	
+	...                                                                                                              [100%]
+	3 passed in 0.01s
+Всё работает! Темперь начинаются основные действия.
 
-===GIT:КОММИТЫ, ВЕТВЛЕНИЯ И РЕГРЕССИЯ===
+===GIT: КОММИТЫ, ВЕТВЛЕНИЯ И РЕГРЕССИЯ===
