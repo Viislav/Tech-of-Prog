@@ -107,12 +107,36 @@
 	   dcc247e..220f9a5  main       -> origin/main
 	Успешно перемещён и обновлён refs/heads/feature/setup.
 И наконец мы проверяем, что всё сработало корректно:
-	
+
+	┌──(vislav㉿No-V)-[~/Tech-of-Prog/starter_repo]
+	└─$ git log -1 --show-signature
+	commit ec1e8e2210d5f031c54b06ede7e7cf1ae0018c51 (HEAD -> feature/setup, origin/main, origin/HEAD)
+	gpg: Подпись сделана Сб 27 сен 2025 11:38:14 +06
+	gpg:                ключом RSA с идентификатором *************
+
 	┌──(vislav㉿No-V)-[~/Tech-of-Prog/starter_repo]
 	└─$ git show                                  
 	commit 220f9a5d50f6a33898338510372182348f9167ad (HEAD -> feature/setup, origin/main, origin/HEAD)
 	Author: Vlad <165074922+Viislav@users.noreply.github.com>
 	Date:   Sat Sep 27 11:14:25 2025 +0600
+Поздравляю, теперь у вас есть доступ к своему репозиторрию. Теперь вы можете, например, просмотреть историю редактирования:
+
+	┌──(vislav㉿No-V)-[~/Tech-of-Prog/starter_repo]
+	└─$ git log --oneline --graph            
+	* ec1e8e2 (HEAD -> feature/setup, origin/main, origin/HEAD) Update README.md
+	* 220f9a5 Update README.md
+	* fcbb3cc Update README.md
+	* 5cfd3cf Update README.md
+	* e352c9b Update README.md
+	* ae9d996 Update README.md
+	* 84e36f5 Update README.md
+	* 66cd1fc Update README.md
+	* f744107 Update README.md
+	* 99735a0 Update README.md
+	* b586375 Update README.md
+	* cb3f9b3 Create README.md
+	* dcc247e (main) Add files via upload
+
 Всё, ветвление создано и оно работает. Идём дальше.
 
 
