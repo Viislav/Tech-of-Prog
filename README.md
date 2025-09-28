@@ -89,7 +89,7 @@
 
 Всё, с ключом разобрались.
 
-Теперь создадим ветвления. Создаём ветвление:
+Теперь создадим ветвления. Создаём ветвление(правда, оно у меня создано, но этот момент мы упустим:) :
 
 	┌──(vislav㉿No-V)-[~/Tech-of-Prog/starter_repo]
 	└─$ git checkout -b feature/setup                          
@@ -106,7 +106,7 @@
 	Из https://github.com/Viislav/Tech-of-Prog
 	   dcc247e..220f9a5  main       -> origin/main
 	Успешно перемещён и обновлён refs/heads/feature/setup.
-И наконецЮ проверяем, что всё сработало корректно:
+И наконец мы проверяем, что всё сработало корректно:
 	
 	┌──(vislav㉿No-V)-[~/Tech-of-Prog/starter_repo]
 	└─$ git show                                  
