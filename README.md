@@ -137,7 +137,34 @@
 	* cb3f9b3 Create README.md
 	* dcc247e (main) Add files via upload
 
-Всё, ветвление создано и оно работает. Идём дальше.
+Всё, ветвление создано и оно работает. Идём дальше. К коммитам.
+
+Я сделаю все цельно, чтобы было понятно.
+
+	┌──(vislav㉿No-V)-[~/Tech-of-Prog/starter_repo]
+	└─$ git bisect start
+	status: waiting for both good and bad commits
+	
+	┌──(vislav㉿No-V)-[~/Tech-of-Prog/starter_repo]
+	└─$ git bisect bad HEAD
+	status: waiting for good commit(s), bad commit known
+	                                                                                                                             
+	┌──(vislav㉿No-V)-[~/Tech-of-Prog/starter_repo]
+	└─$ git bisect good 220f9a5d50f6a33898338510372182348f9167ad
+	ec1e8e2210d5f031c54b06ede7e7cf1ae0018c51 is the first bad commit
+	commit ec1e8e2210d5f031c54b06ede7e7cf1ae0018c51 (HEAD -> feature/setup, origin/main, origin/HEAD)
+	Author: Vlad <165074922+Viislav@users.noreply.github.com>
+	Date:   Sat Sep 27 11:38:14 2025 +0600
+	
+	    Update README.md
+	
+	 README.md | 31 +++++++++++++++++++++++++++++++
+	 1 file changed, 31 insertions(+)
+Тут мы запускаем бисекцию. Затем помечаем главный(то есть последний), на данный момент, коммит как плохой. И при проверке на "хорошесть" коммита оно выдало, что он плохой. Это видно во второй строчке 3 команды.
+
+===HOOKS И PRE-COMMIT===
+
+
 
 
 
