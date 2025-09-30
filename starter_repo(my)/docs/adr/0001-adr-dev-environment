@@ -1,0 +1,45 @@
+
+# ADR 0001: Development Environment and Quality Assurance Setup
+
+## Status
+Accepted
+
+## Context
+Разработка ведётся на Kali Linux с требованием воспроизводимости среды. Необходимо обеспечить единое качество кода, безопасность и автоматизацию процессов и освоить docker.
+
+## Decision
+Принята следующая stack-структура разработки:
+
+### IDE & Editor Configuration
+- **Primary IDE**: VS Code с едиными настройками через `.vscode/settings.json`
+- **Fallback**: Любой редактор с поддержкой EditorConfig
+
+### Quality Assurance Automation  
+- **Pre-commit Hooks**: Автоматические проверки перед коммитом
+- **Code Formatter**: Black для единообразного форматирования Python
+- **Linter**: Flake8 для статического анализа кода
+- **Security**: Gitleaks для детекта секретов в коде
+
+### Environment Management
+- **Primary**: Docker Compose для изолированной разработки
+- **Fallback**: Python venv для локальной разработки
+
+### Git Practices
+- **Signing**: GPG-подписи коммитов для верификации
+- **Branching**: GitHub Flow (feature branches + PR)
+- **Conventional Commits**: Стандартизированные сообщения коммитов
+
+## Consequences
+
+### Positive
+- Единообразие кода across всей команды
+- Автоматическое поддержание качества кода  
+- Воспроизводимость окружения разработки
+- Защита от случайных утечек секретов
+- Стандартизированный процесс разработки
+
+### Negative 
+- Повышенный порог входа для новых разработчиков
+- Настройка окружения требует дополнительного времени
+- Необходимость обучения команды инструментам
+- Автоматические проверки могут замедлять коммиты
