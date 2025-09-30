@@ -164,11 +164,62 @@
 
 ===HOOKS И PRE-COMMIT===
 
+Здесь уже больше работают написанные вами программы с типом .yaml. Код pre-coomit-config можно посмотреть в starter_repo. А здесь напишу порядко, как всё делается.
 
+	┌──(vislav㉿No-V)-[~/Tech-of-Prog/starter_repo]
+	└─$ nano .pre-commit-config.yaml
+	
+	┌──(vislav㉿No-V)-[~/Tech-of-Prog/starter_repo]
+	└─$ pre-commit install        
+	pre-commit installed at .git/hooks/pre-commit
+	
+	┌──(vislav㉿No-V)-[~/Tech-of-Prog/starter_repo]
+	└─$ pre-commit run --all-files
+	trim trailing whitespace.................................................Failed
+	- hook id: trailing-whitespace
+	- exit code: 1
+	- files were modified by this hook
+	
+	Fixing README.md
+	
+	fix end of files.........................................................Failed
+	- hook id: end-of-file-fixer
+	- exit code: 1
+	- files were modified by this hook
+	
+	Fixing starter_repo/requirements.txt
+	Fixing README.md
+	Fixing starter_repo/app/__init__.py
+	Fixing starter_repo/scripts/bisect_test.sh
+	Fixing starter_repo/docs/adr/README.md
+	Fixing starter_repo/app/calc_buggy.py
+	Fixing starter_repo/README.md
+	Fixing starter_repo/tests/test_calc.py
+	Fixing starter_repo/scripts/mini-smoke.sh
+	Fixing starter_repo/compose.yaml
+	Fixing starter_repo/app/calc.py
+	Fixing starter_repo/tests/test_smoke.py
+	Fixing starter_repo/docs/adr/templates/adr-template.md
+	Fixing starter_repo/scripts/bisect_demo_init.sh
+	
+	check yaml...............................................................Passed
+	check for added large files..............................................Passed
+	black....................................................................Passed
+	isort....................................................................Passed
+	Detect hardcoded secrets.................................................Passed
+Здесь он исправил, созданные нами ранее, ошибки. Значит,, сработало всё корректно. Если говорить про то, что он делает, то вкратце: 
+	
+	Хук	- Защита от проблем;
+	trailing-whitespace	- Исправление грязного кода с лишними пробелами
+	end-of-file-fixer - Фикс ошибок "No newline at end of file"
+	check-yaml	- Фикс невалидных конфигов docker/compose
+	check-added-large-files	- Проверяет случайные коммиты больших файлов
+	black - Фикс неединообразного стиля кода
+	isort - Убирает хаотичных импорты
+	gitleaks - Убирает утечки секретов в Git
+Здесь тоже разобрались, идём дальше.
 
+===ADR И ИНЖЕНЕРНАЯ ДИСЦИПЛИНА===
 
-
-
-
-
+	
 
