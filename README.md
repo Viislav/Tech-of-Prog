@@ -87,9 +87,9 @@
 	┌──(vislav㉿No-V)-[~/Tech-of-Prog/starter_repo]
 	└─$ git config --global commit.gpgsign true
 
-Всё, с ключом разобрались.
+Всё, с ключом разобрались. Последняя команда отвечает за автоматическую подпись коммитов.
 
-Теперь создадим ветвления. Создаём ветвление(правда, оно у меня создано, но этот момент мы упустим:) :
+Теперь создадим ветвление(правда, оно у меня создано, но этот момент мы упустим:) :
 
 	┌──(vislav㉿No-V)-[~/Tech-of-Prog/starter_repo]
 	└─$ git checkout -b feature/setup                          
@@ -106,7 +106,7 @@
 	Из https://github.com/Viislav/Tech-of-Prog
 	   dcc247e..220f9a5  main       -> origin/main
 	Успешно перемещён и обновлён refs/heads/feature/setup.
-И наконец мы проверяем, что всё сработало корректно:
+И наконец мы проверяем, что всё сработало корректно и коммиты подписываются:
 
 	┌──(vislav㉿No-V)-[~/Tech-of-Prog/starter_repo]
 	└─$ git log -1 --show-signature
@@ -119,7 +119,7 @@
 	commit 220f9a5d50f6a33898338510372182348f9167ad (HEAD -> feature/setup, origin/main, origin/HEAD)
 	Author: Vlad <165074922+Viislav@users.noreply.github.com>
 	Date:   Sat Sep 27 11:14:25 2025 +0600
-Поздравляю, теперь у вас есть доступ к своему репозиторрию. Теперь вы можете, например, просмотреть историю редактирования:
+Поздравляю, теперь у вас есть доступ к своему репозиторрию и коммиты подписываются. Теперь вы можете, например, просмотреть историю редактирования:
 
 	┌──(vislav㉿No-V)-[~/Tech-of-Prog/starter_repo]
 	└─$ git log --oneline --graph            
