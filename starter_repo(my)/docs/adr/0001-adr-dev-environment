@@ -29,7 +29,15 @@ Accepted
 - **Branching**: GitHub Flow (feature branches + PR)
 - **Conventional Commits**: Стандартизированные сообщения коммитов
 
-## Consequences
+## TCO
+Name --------------- Docker CE ------------------- Podman
+Install ------------ sudo apt install docker.io -- sudo apt install podman podman-docker podman-compose
+Dependencies ------- 150+ MB, systemd depend ----- 80+ MB, less depend
+Security ----------- Need root/sudo -------------- Rootless mode by default
+Performance -------- Normally -------------------- Better in rootless mode
+Compatibility ------ Docker ---------------------- 90% docker, alias podman-docker
+Orchestration ------ Docker Compose -------------- Podman Compose, Kubernetes
+Support Kali Tools - Fully ----------------------- Fully(podman-docker)
 
 ### Positive
 - Единообразие кода across всей команды
