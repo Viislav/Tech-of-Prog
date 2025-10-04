@@ -119,7 +119,7 @@
 	commit 220f9a5d50f6a33898338510372182348f9167ad (HEAD -> feature/setup, origin/main, origin/HEAD)
 	Author: Vlad <165074922+Viislav@users.noreply.github.com>
 	Date:   Sat Sep 27 11:14:25 2025 +0600
-Поздравляю, теперь у вас есть доступ к своему репозиторрию и коммиты подписываются. Теперь вы можете, например, просмотреть историю редактирования:
+Поздравляю, теперь у вас есть доступ к своему репозиторию и коммиты подписываются. Теперь вы можете, например, просмотреть историю редактирования:
 
 	┌──(vislav㉿No-V)-[~/Tech-of-Prog/starter_repo]
 	└─$ git log --oneline --graph            
@@ -164,7 +164,7 @@
 
 ===HOOKS И PRE-COMMIT===
 
-Здесь уже больше работают написанные вами программы с типом .yaml. Код pre-coomit-config можно посмотреть в starter_repo. А здесь напишу порядко, как всё делается.
+Здесь уже больше работают написанные вами программы с типом .yaml. Код pre-coomit-config можно посмотреть в starter_repo. А здесь напишу порядок, как всё делается.
 
 	┌──(vislav㉿No-V)-[~/Tech-of-Prog/starter_repo]
 	└─$ nano .pre-commit-config.yaml
@@ -207,7 +207,7 @@
 	black....................................................................Passed
 	isort....................................................................Passed
 	Detect hardcoded secrets.................................................Passed
-Здесь он исправил, созданные нами ранее, ошибки. Значит,, сработало всё корректно. Если говорить про то, что он делает, то вкратце: 
+Здесь он исправил, созданные нами ранее, ошибки. Значит, сработало всё корректно. Если говорить про то, что он делает, то вкратце: 
 	
 	Хук	- Защита от проблем;
 	trailing-whitespace	- Исправление грязного кода с лишними пробелами;
@@ -217,4 +217,41 @@
 	black - Фикс неединообразного стиля кода;
 	isort - Убирает хаотичных импорты;
 	gitleaks - Убирает утечки секретов в Git.
-Здесь тоже разобрались. На этом, в целом, всё. Оформленный ADR можно посмотреть в ./starter_repo(my)/docs/adr. Там можно посмотреть всё, что я использовал и сравнение Docker с Podman.
+
+И наконец, ставим SBOM для проверки на уязвимость.
+
+===SBOM===
+
+Для начала устанавливаем ссылку на то, откуда качать утилиту syft, ведь изначально его нет в репозиториях:
+
+	┌──(vislav㉿No-V)-[~/Tech-of-Prog/my_starter_repo]
+	└─$ curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
+	
+	[info] checking github for the current release tag 
+	[info] fetching release script for tag='v1.33.0' 
+Далее устанавливаем саму утилиту:
+
+	┌──(vislav㉿No-V)-[~/Tech-of-Prog/my_starter_repo]
+	└─$ sudo apt install syft -y
+	
+	Установка:                                                        
+	  syft
+	                                                                                                                             
+	Сводка:
+	  Обновление: 0, Установка: 1, Удаление: 0, Пропуск обновления: 0
+	  Объём загрузки: 21,3 MB
+	  Требуемое пространство: 82,4 MB / 374 GB доступно
+И наконец, устанавливаем сам SBOM через файл json:
+
+	┌──(vislav㉿No-V)-[~/Tech-of-Prog/my_starter_repo]
+	└─$ syft packages dir:. -o spdx-json=sbom.spdx.json
+	Command "packages" is deprecated, use `syft scan` instead
+	 ✔ Indexed file system                                                                                                   . 
+	 ✔ Cataloged contents                                     cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8 
+	   ├── ✔ Packages                        [1 packages]  
+	   ├── ✔ Executables                     [0 executables]  
+	   ├── ✔ File metadata                   [1 locations]  
+	   └── ✔ File digests                    [1 files]  
+	[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is n...)
+                                                                              
+Теперь всё должно работать корректно. На этом, в целом, всё. Оформленный ADR можно посмотреть в ./starter_repo(my)/docs/adr. Там можно посмотреть всё, что я использовал и сравнение Docker с Podman по TCO.
