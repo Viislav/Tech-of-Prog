@@ -255,3 +255,13 @@
 	[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is n...)
                                                                               
 Теперь всё должно работать корректно. На этом, в целом, всё. Оформленный ADR можно посмотреть в ./starter_repo(my)/docs/adr. Там можно посмотреть всё, что я использовал и сравнение Docker с Podman по TCO.
+
+
+
+
+
+
+
+
+
+fdasfds
